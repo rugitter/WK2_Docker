@@ -26,7 +26,9 @@ pipeline {
         stage('Push Image') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PSWD', usernameVariable: 'USER')]) {
-                    sh """                        
+                    sh """
+		    	echo $USER
+			echo $PSWD
                         docker login -u $USER -p $PSWD
                         for img in csuchqwork/cat:JR10 csuchqwork/cat:latest csuchqwork/helloworld:JR10 csuchqwork/helloworld:latest \
                                csuchqwork/mynginx:JR10 csuchqwork/mynginx:latest; \
