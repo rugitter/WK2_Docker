@@ -1,0 +1,14 @@
+version: '3'
+services:
+  helloworld:
+    image: csuchqwork/helloworld
+  mynginx:
+    image: csuchqwork/mynginx:10
+    ports:
+    - "5001:80"
+  mycat:
+    image: csuchqwork/cat:10
+    ports:
+    - "5000:5000"
+
+
